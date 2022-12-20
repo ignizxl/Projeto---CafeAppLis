@@ -1,0 +1,196 @@
+<!-- a primeira coisa que precisa ser definida num arquivo html é o doctype. basicamente, o doctype vai dizer
+para o seu navegador como é para ele interpretar tudo que estiver nesse documento. por isso que o doctype é fundamental
+para que a sua página funcione corretamente num navegador -->
+<!DOCTYPE html>
+
+<!--aqui eu abro a tag html, e tudo é descendente dessa tag -->
+<html>
+
+<!--aqui eu abro a tag head, tudo que você colocar aqui não aparece na página, mas é importante para o navegador,
+ por ex: configurações, titulo..-->
+
+<head>
+
+    <!-- aqui uso uma tag self closing, a tag meta, com o atributo charset para definir o conjunto de caracteres da sua página.
+        ex: $ % ¨ # ç ^ ~ -->
+    <meta charset="UTF-8">
+
+
+    <title>Document</title>
+
+    <!-- Bootstrap - CSS -->
+    <!-- aqui eu estou linkando o bootstrap utilizando a tag link e seu atributo href, com um endereço relativo e o seu atributo stylesheet, folha de estilo, o css-->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilo da aplicação -->
+    <!-- aqui eu estou linkando o meu arquivo .css, esse arquivo .css é fundamental porque ira facilitar muito na hora de fazer a manutenção do código, alteração na estilização e etc. -->
+    <link rel="stylesheet" href="css/index.css">
+
+
+</head>
+
+
+<!-- saindo da tag head, vamos para o body, o corpo da página por assim dizer..
+tudo o que for visivel na página, pra resumir, o que for conteúdo vai ficar dentro da tag body-->
+
+<body>
+
+    <!-- o header é uma tag de cabeçalho, aqui é o topo do site + menus 
+    vamos dizer que o header é cabeçalho do site, é a parte que se repete em todas as páginas -->
+    <header>
+        <!-- Toolbar -->
+
+        <!-- como eu estou utilizando o bootstrap, pra resumir todos os elemento que tiverem class='alguma coisa' ou até mesmo o próprio id, é o bootstrap
+        que está manipulando esse elemento e estilizando, ou seja, ele faz todo o trabalho dificil que eu demoraria horas estilizando no css -->
+
+        <!-- nav, essa é a tag dos menus de navegação. como por ex: uma lista de links, um menu de acesso pra seu site que você vai colocar dentro de uma tag nav,  -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+            <!-- div é um box de conteúdo que você pode usar para agrupar todos os elementos dentro de uma mesma seção por exemplo-->
+            <div class="container-fluid">
+                <!-- a, os links servem para levar a pessoa que está navegando no site, de uma página para outra, ou até mesmo abrir uma página ampliada, etc..
+                    o atributo href é o destino, é pra onde esse link vai me levar quando eu clicar nele. como no href tem # significa que eu vou permacer no mesmo lugar, não acontece nada -->
+                <a class="navbar-brand" href="#">
+                    Coffee
+                    <!--a tag small, basicamente vai formatar o texto em um tamanho menor do que o tamanho padrão -->
+                    <small>Arábica</small>
+                </a>
+                <!-- aqui eu uso uma tag button do tipo button para criar uma botão e utilizo a class e os demais atributos para o bootstrap fazer a estilização -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- a tag span é usada para agrupar texto, ele não deixa o texto 'solto', ela agrupa, por assim dizer -->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- mais divs....-->
+                <!-- aqui eu utilizo mais uma div para agrupar os elementos abaixo, e adiciono uma class e um id para o bootstrap estilizar, é recomendado utilizar id e class nos elementos
+             por que facilita na hora de fazer  uma manutenção no código, se eu quiser fazer uma alteração nessa div por exemplo, eu vou lá no meu css e digito o nome do id ou a class que eu dei para essa div-->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!--ul, é uma tag para lista desordenada, e dentro dessa lista eu tenho varias li que são os meus itens e dentro de cada item eu tenho uma tag de hiperlink, a, tudo isso está sendo estilizado pelo bootstrap,  -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <!--como href tem um caminho, quando eu clicar nesse link, ele vai me levar para a página index.html e as demais não vão me levar para lugar nenhum por no href tem #-->
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <!-- aqui abaixo funciona da mesma forma-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="./cardapio.html">Cardápio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sobre</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--aqui acontece os fechamentos das tags-->
+
+    <!-- main, é aqui dentro da tag main que o conteúdo principal do meu site vai ficar -->
+    <main>
+        <!-- dentro da section vai ficar um seção de conteúdo, é uma seção do site, quando você vai criar por exemplo,
+        uma lista de comentários, cada um dos comentários deve ficar dentro da section -->
+
+        <section>
+            <!-- mais divs e botoes que estão sendo estilazados pelo bootstrap ... -->
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <!-- inserindo imagens... o que vai ser dito aqui, vale até a linha 148 pra não ficar repetitivo 
+                         img é uma tag self closing e é utilizada para inserir imagens, para inserir uma imagem corretamente é necessário definir 2 atributos, o src, o valor do src será a origem(nome da pasta com a imagem) 
+                        e o alt, que é uma descrição alternativa da imagem.
+                    o endereço das imagens é absoluto porque ele está completo, com o caminho, protocolo, tá no browser... -->
+
+
+                        <img src="https://images.unsplash.com/photo-1609593147714-46c546d38137?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2551&q=80"
+                            class="d-block w-100" alt="...">
+
+                        <div class="carousel-caption d-none d-md-block">
+                            <!--h5 é uma tag de titulo e a tag p é uma tag utilizada para escrever paragráfos-->
+                            <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+
+                        <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                            class="d-block w-100" alt="...">
+
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+
+                        <img src="https://images.unsplash.com/photo-1581068106017-2349c727e298?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+                            class="d-block w-100" alt="...">
+
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+
+                        <img src="https://images.unsplash.com/photo-1507915135761-41a0a222c709?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+                            class="d-block w-100" alt="...">
+
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- mais botoes que estão sendo estilizados pelo bootstrap..-->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <!-- como já foi dito acima, a tag span é utilizada para agrupar textos-->
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </section>
+
+        <section>
+            <!--aqui está sendo aberta mais uma tag de section, com tag de titulo h1, tag de hiperlink a, e tag de paragráfo-->
+            <h1>Minha aplicação com JS!</h1>
+            <!--quando eu clicar nesse hiperlink ele vai me direcionar para o arquivo semana3_atividade1.html-->
+
+            <a href="semana3_atividade1.html">Semana 3</a>
+
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A voluptate vero voluptas quo ipsum alias
+                repellat quibusdam ipsam asperiores laboriosam veritatis earum porro, provident sequi aspernatur nisi
+                eius, iste odio.</p>
+        </section>
+
+    </main>
+
+    <!-- a tag footer é o rodapé do site, nesse arquivo index.html não tem nada! -->
+    <footer></footer>
+
+
+    <!-- Bootstrap - Js -->
+    <!-- a temos um endereço relativo, aqui é aonde o js está sendo linkado através da tag script com o atributo src e o seu diretório/destino
+    eu posso usar a tag script src tanto dentro do head quanto dentro do body, existem casos em que é melhor usar no header e existem casos que é melhor usar no body
+ é recomendado usar na ultimma linha do body porque o js já vai reconhecer todos os elementos html e vai ser executado quando toda a página estiver carregads, por isso é interessante linkar o js na ultima linha do body -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

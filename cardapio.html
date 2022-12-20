@@ -1,0 +1,216 @@
+<!-- a primeira coisa que precisa ser definida num arquivo html é o doctype. basicamente, o doctype vai dizer
+para o seu navegador como é para ele interpretar tudo que estiver nesse documento. por isso que o doctype é fundamental
+para que a sua página funcione corretamente num navegador -->
+<!DOCTYPE html>
+
+<!--aqui eu abro a tag html, e tudo é descendente dessa tag -->
+<html>
+
+<!--aqui eu abro a tag head, tudo que você colocar aqui não aparece na página, mas é importante para o navegador,
+ por ex: configurações, titulo..-->
+
+<head>
+
+    <!-- aqui uso uma tag self closing, a tag meta, com o atributo charset para definir o conjunto de caracteres da sua página.
+    ex: $ % ¨ # ç ^ ~ -->
+    <meta charset="UTF-8">
+
+    <!-- aqui eu utilizo a tag title para dar um titulo a minha página -->
+    <title>Cardápio</title>
+
+    <!-- Bootstrap - CSS -->
+    <!-- aqui eu estou linkando o bootstrap, com um endereço relativo e o seu atributo stylesheet, folha de estilo, o css-->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<!-- saindo da tag head, vamos para o body, o corpo da página por assim dizer..
+tudo o que for visivel na página, pra resumir, o que for conteúdo vai ficar dentro da tag body-->
+
+<body>
+    <!-- o header é uma tag de cabeçalho, aqui é o topo do site + menus 
+    vamos dizer que o header é cabeçalho do site, é a parte que se repete em todas as páginas -->
+    <header>
+        <!-- Toolbar -->
+
+        <!-- como eu estou utilizando o bootstrap, pra resumir todos os elemento que tiverem class='alguma coisa' ou até mesmo o próprio id, é o bootstrap
+        que está manipulando esse elemento e estilizando, ou seja, ele faz todo o trabalho dificil que eu demoraria horas estilizando no css -->
+
+        <!-- nav, essa é a tag dos menus de navegação. como por ex: uma lista de links, um menu de acesso pra seu site que você vai colocar dentro de uma tag nav,  -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <!-- div é um box de conteúdo que você pode usar para agrupar todos os elementos dentro de uma mesma seção por exemplo
+            -->
+            <div class="container-fluid">
+                <!-- a, os links servem para levar a pessoa que está navegando no site, de uma página para outra, ou até mesmo abrir uma página ampliada, etc..
+                o atributo href é o destino, é pra onde esse link vai me levar quando eu clicar nele. como no href tem # significa que eu vou permacer no mesmo lugar, não acontece nada -->
+                <a class="navbar-brand" href="#">
+                    Coffee
+                    <!--a tag small, basicamente vai formatar o texto em um tamanho menor do que o tamanho padrão -->
+                    <small>Arábica</small>
+                </a>
+
+                <!-- aqui eu uso uma tag button do tipo button para criar uma botão e utilizo a class e os demais atributos para o bootstrap fazer a estilização -->
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- aqui eu utilizo mais uma div para agrupar os elementos abaixo, e adiciono uma class e um id para o bootstrap estilizar, é recomendado utilizar id e class nos elementos
+                por que facilita na hora de fazer  uma manutenção no código, se eu quiser fazer uma alteração nessa div por exemplo, eu vou lá no meu css e digito o nome do id ou a class que eu dei para essa div-->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!--ul, é uma tag para lista desordenada, e dentro dessa lista eu tenho varias li que são os meus itens e dentro de cada item eu tenho uma tag de hiperlink, a -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <!--como href tem um caminho, quando eu clicar nesse link, ele vai me levar para a página index.html e as demais não vão me levar para lugar nenhum por no href tem #-->
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Cardápio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sobre</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- main, é aqui dentro da tag main que o conteúdo principal do meu site vai ficar -->
+    <main>
+        <!-- dentro da section vai ficar um seção de conteúdo, é uma seção do site, quando você vai criar por exemplo,
+        uma lista de comentários, cada um dos comentários deve ficar dentro da section -->
+        <section class="my-3">
+
+            <!-- Grid -->
+            <!-- o grid é um sistema de linhas e colunas, onde em cada linha eu devo ter 12 colunas
+            como o bootstrap tá fazendo tudo por aqui, não tem muito o que comentar  -->
+            <div class="container">
+
+                <!-- Button trigger modal -->
+                <!-- mais um botão sendo modificado pelo bootstrap... -->
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    +
+                </button>
+
+                <!-- Modal -->
+                <!-- mais divs.... todas essas divs estão sendo estilizadas pelo bootstrap -->
+                <div class="modal fade" data-bs-keyboard="false" id="exampleModal" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+
+                                <!-- tag de titulo nivel 5 -->
+                                <h5 class="modal-title" id="exampleModalLabel">Adicionar Item</h5>
+                                <!-- mais tag button (botão ) sendo estilizada pelo bootstrap -->
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- o h1 é uma tag de titulo, o tamanho da fonte fica muito grande  -->
+
+                                <h1>Conteúdo do modal</h1>
+
+                                <!-- Formulário -->
+
+                                <!-- a tag de form precisa ter no minimo 2 atributos que são fundamentais para um formulário funcionar corretamente. 
+                                nesse arquivo cardapio.html não tem nenhum!!! quando eu abro a tag form eu preciso definir a action, 
+                                a action é a ação que vai processar o meu formulário e preciso definir também o method, que é a forma 
+                                que as informações vão ser enviadas pra o que foi definido na action.
+
+                                ex: <form action='contato.php' method='post'> </form>
+                                quando eu enviar as informações desse formulário, essas informações vão ser enviadas para a página contato.php
+                                e la dentro da página contato.php eu posso através de uma linguagem de programação tratar essas informações e fazer aquilo
+                                que for necessário pra lógica do meu site. como por ex: enviar um email de contato para o adm do site, pra voc
+                                poder tratar as informações que são através de um formulário vocÊ não pode usar somente o html, você precisa
+                                obrigatóriamente usar uma linguagem de programação pra web...
+                                
+                                já o method é a forma como essas informações vão ser enviadas para a página que eu defini no action. 
+                                os metódos mais comuns são get e post. o get envia as informações de forma que o navegador consiga
+                                mostrar isso no endereço do site, e post envia as informações em background, escondidas na página 
+                                para que somente a linguagem de programação lá da página da action consiga ver essas informações.
+
+                            -->
+                                <form id="foodForm">
+                                    <!-- as tags de input são as tag  de campo, existem vários tipos de campo(texto, número, email ..)
+                                    e as tag de label é como se fosse a etiqueta da tag de campo, ela dá um titulo ao campo digamos assim...
+                                isso só vai ser facil de vizualizar quando o código é exibido navegador   -->
+
+                                    <div class="mb-3">
+                                        <!-- Nome -->
+                                        <!-- titulo da tag input tipe text, tipo texto  -->
+                                        <label for="nome" class="form-label">Nome</label>
+                                        <input type="text" name="nome" id="nome" class="form-control">
+                                        <div id="nomeHelp" class="form-text">Adicione o nome do Alimento.</div>
+                                    </div>
+
+                                    <!-- Descrição -->
+                                    <div class="mb-3">
+                                        <!-- mesma coisa .. -->
+                                        <label for="descricao" class="form-label">Descrição</label>
+                                        <input type="text" name="descricao" id="descricao" class="form-control">
+                                    </div>
+
+                                    <!-- Preço -->
+                                    <div class="mb-3">
+                                        <label for="preco" class="form-label">Preço</label>
+                                        <input type="text" name="preco" id="preco" class="form-control">
+                                    </div>
+
+                                    <!-- Imagem -->
+                                    <!-- todos os input e labels estão sendo estilizados pelo bootstrap...  -->
+                                    <div class="mb-3">
+                                        <label for="imagem" class="form-label">Imagem</label>
+                                        <input type="text" name="imagem" id="imagem" class="form-control">
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <!-- mais tag de botão  -->
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Fechar</button>
+
+                                        <!-- <input type="submit" value="Adicionar"> -->
+                                        <!-- esse é um botão do tipe submit ou seja, enviar, quando eu clicar nesse botão ele vai realizar alguma ação -->
+                                        <button type="submit" class="btn btn-primary" id="adicionarFoodButton">
+                                            Adicionar
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- fechamentos das divs... -->
+                <!-- Linha -->
+                <div id="itens-cardapio" class="row">
+
+                    <!-- Colunas-->
+
+                    <!-- beforeend -->
+                </div>
+
+        </section>
+
+    </main>
+    <!-- a tag footer é o rodapé do site, nesse arquivo cardapio.html não tem nada! -->
+    <footer></footer>
+
+
+    <!-- aqui é aonde o js está sendo linkado através da tag script com o atributo src e o seu diretório/destino
+    eu posso usar a tag script src tanto dentro do head quanto dentro do body, existem casos em que é melhor usar no header e existem casos que é melhor usar no body
+ é recomendado usar na ultimma linha do body porque o js vai ser executado quando toda a página estiver carregar, por isso é interessante linkar o js na ultima linha do body
+ -->
+
+
+    <!-- Cardápio -->
+    <script src="./js/cardapio.js" type="module"></script>
+
+    <!-- Bootstrap - Js -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
